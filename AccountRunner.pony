@@ -1,13 +1,13 @@
 actor Main
   new create(env: Env) =>
-    let printer = AccountPrinter(env)
+    let printer = Receiver(env)
     var account = Account(env, printer)
 
     account.process(recover OpenAccount("A-1234",100) end)
     account.process(recover DepositFunds(50) end)
     account.process(recover WithdrawFunds(75) end)
 
-actor AccountPrinter is EventProcessor
+actor Receiver is EventProcessor
   let _env : Env
 
   new create(env: Env) =>
