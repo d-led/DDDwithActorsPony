@@ -27,12 +27,12 @@ trait CommandProcessor
 
 
 class AccountOpened
-  var account_number: String = ""
-  var initial_balance: I64 = 0
+  let account_number: String
+  let initial_balance: I64
 
   new create(account_number': String, initial_balance': I64) =>
     account_number = account_number'
-    initial_balance = initial_balance
+    initial_balance = initial_balance'
 
   fun string(): String =>
     "AccountOpened account_number: "+account_number+", initial_balance: "+initial_balance.string()
