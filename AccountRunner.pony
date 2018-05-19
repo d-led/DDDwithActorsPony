@@ -1,5 +1,6 @@
 actor Main
   new create(env: Env) =>
+    // version 1
     let printer = Receiver(env)
     var account = Account(env, printer)
 
@@ -7,11 +8,8 @@ actor Main
     account.process(recover DepositFunds(50) end)
     account.process(recover WithdrawFunds(75) end)
 
-actor Receiver is EventProcessor
-  let _env : Env
-
-  new create(env: Env) =>
-    _env = env
-
-  be process(event: Events val) =>
-    _env.out.print(event.string())
+    // version 2
+    let simpler_receiver = SimplerReceiver(env)
+    let simpler_account = SimplerAccount("A-5678", 100, simpler_receiver)
+    simpler_account.deposit_funds(50)
+    simpler_account.withdraw_funds(75)

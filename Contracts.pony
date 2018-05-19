@@ -39,29 +39,38 @@ class AccountOpened
 
 
 class FundsDeposited
+  let account_number: String
   let amount: I64
   let balance: I64
 
-  new create(amount': I64, balance': I64) =>
+  new create(account_number': String, amount': I64, balance': I64) =>
+    account_number = account_number'
     amount = amount'
     balance = balance'
 
   fun string(): String =>
-    "FundsDeposited amount: "+amount.string()+", balance: "+balance.string()
+    account_number + ": FundsDeposited amount: "+amount.string()+", balance: "+balance.string()
 
 
 class FundsWithdrawn
+  let account_number: String
   let amount: I64
   let balance: I64
 
-  new create(amount': I64, balance': I64) =>
+  new create(account_number': String, amount': I64, balance': I64) =>
+    account_number = account_number'
     amount = amount'
     balance = balance'
 
   fun string(): String =>
-    "FundsWithdrawn amount: "+amount.string()+", balance: "+balance.string()
+    account_number + ": FundsWithdrawn amount: "+amount.string()+", balance: "+balance.string()
 
 type Events is (AccountOpened | FundsDeposited | FundsWithdrawn)
 
 trait EventProcessor
   be process(event: Events val)
+
+trait SimplerEventProcessor
+  be account_opened(account_number': String, initial_balance': I64)
+  be funds_deposited(account_number': String, amount': I64, balance': I64)
+  be funds_withdrawn(account_number': String, amount': I64, balance': I64)
