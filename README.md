@@ -10,4 +10,5 @@ Pony version of https://github.com/VaughnVernon/DDDwithActors by Vaughn Vernon
 
 - main: [AccountRunner.pony](AccountRunner.pony)
 - contracts: [Contracts.pony](Contracts.pony)
+- contracts for a second, type-minimizing version: [SimplerContracts.pony](SimplerContracts.pony)
 - implementations: the rest
