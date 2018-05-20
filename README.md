@@ -12,3 +12,8 @@ Pony version of https://github.com/VaughnVernon/DDDwithActors by Vaughn Vernon
 - contracts: [Contracts.pony](Contracts.pony)
 - contracts for a second, type-minimizing version: [SimplerContracts.pony](SimplerContracts.pony)
 - implementations: the rest
+
+## Running
+
+- `docker-compose up --build`
+- alternative: `ponyc && ./DDDwithActorsPony`
