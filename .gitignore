@@ -1,2 +1,7 @@
 main
 DDDwithActorsPony
+*.exe
+*.exp
+*.ilk
+*.lib
+*.pdb
