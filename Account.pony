@@ -25,15 +25,15 @@ actor Account is CommandProcessor
       | let c: OpenAccount val =>
         _state = State(c.account_number, c.balance)
         let state = _state
-        _receiver.process(recover AccountOpened(state.account_number, state.balance) end)
+        _receiver.process(AccountOpened(state.account_number, state.balance))
 
       | let c: DepositFunds val =>
         _state = State(_state.account_number, _state.balance+c.amount)
         let state = _state
-        _receiver.process(recover FundsDeposited(state.account_number, c.amount, state.balance) end)
+        _receiver.process(FundsDeposited(state.account_number, c.amount, state.balance))
 
       | let c: WithdrawFunds val =>
         _state = State(_state.account_number, _state.balance-c.amount)
         let state = _state
-        _receiver.process(recover FundsWithdrawn(state.account_number, c.amount, state.balance) end)
+        _receiver.process(FundsWithdrawn(state.account_number, c.amount, state.balance))
       end

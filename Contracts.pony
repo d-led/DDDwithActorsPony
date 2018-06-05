@@ -26,11 +26,11 @@ trait CommandProcessor
   be process(command: Command val)
 
 
-class AccountOpened
+class val AccountOpened
   let account_number: String
   let initial_balance: I64
 
-  new create(account_number': String, initial_balance': I64) =>
+  new val create(account_number': String, initial_balance': I64) =>
     account_number = account_number'
     initial_balance = initial_balance'
 
@@ -38,12 +38,12 @@ class AccountOpened
     "AccountOpened account_number: "+account_number+", initial_balance: "+initial_balance.string()
 
 
-class FundsDeposited
+class val FundsDeposited
   let account_number: String
   let amount: I64
   let balance: I64
 
-  new create(account_number': String, amount': I64, balance': I64) =>
+  new val create(account_number': String, amount': I64, balance': I64) =>
     account_number = account_number'
     amount = amount'
     balance = balance'
@@ -52,12 +52,12 @@ class FundsDeposited
     account_number + ": FundsDeposited amount: "+amount.string()+", balance: "+balance.string()
 
 
-class FundsWithdrawn
+class val FundsWithdrawn
   let account_number: String
   let amount: I64
   let balance: I64
 
-  new create(account_number': String, amount': I64, balance': I64) =>
+  new val create(account_number': String, amount': I64, balance': I64) =>
     account_number = account_number'
     amount = amount'
     balance = balance'
