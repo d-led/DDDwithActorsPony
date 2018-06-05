@@ -20,17 +20,20 @@ actor Account is CommandProcessor
     _receiver = receiver
     _env = env
 
-  be process(command: OpenAccount val) =>
-    _state = State(command.account_number, command.balance)
-    let state = _state
-    _receiver.process(recover AccountOpened(state.account_number, state.balance) end)
+  be process(command: Command val) =>
+    match command
+      | let c: OpenAccount val =>
+        _state = State(c.account_number, c.balance)
+        let state = _state
+        _receiver.process(recover AccountOpened(state.account_number, state.balance) end)
 
-  be process(command: DepositFunds val) =>
-    _state = State(_state.account_number, _state.balance+command.amount)
-    let state = _state
-    _receiver.process(recover FundsDeposited(state.account_number, command.amount, state.balance) end)
+      | let c: DepositFunds val =>
+        _state = State(_state.account_number, _state.balance+c.amount)
+        let state = _state
+        _receiver.process(recover FundsDeposited(state.account_number, c.amount, state.balance) end)
 
-  be process(command: WithdrawFunds val) =>
-    _state = State(_state.account_number, _state.balance-command.amount)
-    let state = _state
-    _receiver.process(recover FundsWithdrawn(state.account_number, command.amount, state.balance) end)
+      | let c: WithdrawFunds val =>
+        _state = State(_state.account_number, _state.balance-c.amount)
+        let state = _state
+        _receiver.process(recover FundsWithdrawn(state.account_number, c.amount, state.balance) end)
+      end
