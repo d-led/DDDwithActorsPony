@@ -1,22 +1,22 @@
-class OpenAccount
+class val OpenAccount
   let account_number: String
   let balance: I64
 
-  new create(account_number': String, balance': I64) =>
+  new val create(account_number': String, balance': I64) =>
     account_number = account_number'
     balance = balance'
 
-class DepositFunds
+class val DepositFunds
   let amount: I64
 
-  new create(amount': I64) =>
+  new val create(amount': I64) =>
     amount = amount'
 
 
-class WithdrawFunds
+class val WithdrawFunds
   let amount: I64
 
-  new create(amount': I64) =>
+  new val create(amount': I64) =>
     amount = amount'
 
 
