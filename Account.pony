@@ -3,8 +3,8 @@ class State
   let balance: I64
 
   new create(account_number': String, balance': I64) =>
-      account_number = account_number'
-      balance = balance'
+    account_number = account_number'
+    balance = balance'
 
   fun string(): String =>
     "State account_number: "+account_number+" balance: "+ balance.string()
