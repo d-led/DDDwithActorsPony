@@ -1,6 +1,6 @@
 # DDDwithActorsPony
 
-[![Build Status](https://travis-ci.com/d-led/DDDwithActorsPony.svg?branch=master)](https://travis-ci.com/d-led/DDDwithActorsPony)
+[![Docker Image CI](https://github.com/d-led/DDDwithActorsPony/actions/workflows/docker-image.yml/badge.svg)](https://github.com/d-led/DDDwithActorsPony/actions/workflows/docker-image.yml)
 
 Pony version of https://github.com/VaughnVernon/DDDwithActors by Vaughn Vernon
 
