@@ -6,3 +6,4 @@ DDDwithActorsPony
 *.lib
 *.pdb
 *.obj
+*.o
